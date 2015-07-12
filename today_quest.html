@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<script>
+		var quest = 'Номер телефона бабушки';
+		var answer = '2N276N6D';
+	</script>
+	<title>Вопрос дня</title>
+	<meta name="generator" content="Geany 1.23.1" />
+</head>
+<body style="background-color:black; padding:0px; margin:0px; color:white; font-size:300%;">
+	<!--p>Потом сделаю user script</p-->
+	<div style="margin: 0px auto; border:white 4px solid; border-radius: 10px; width:50%;">
+		<div style="text-align:center">
+			<p id="questtext"></p>
+			<p id="error" style="color:#AA0000"></p>
+			<p id="spacer">&nbsp;</p>
+			<p id="success" style="color:#00AA00"></p>
+		</div>
+		<div style="margin-bottom: 23px;">
+			<input type="text" id="enter" style="width:75%; height:55px; font-size:56px; float:left;  margin-left: 14px;">
+			<input type="button" id="btn" value="Ok" style="width:20%; height:57px; float:left;">
+			<div style="clear:both"></div>
+		</div>
+	</div>
+</body>
+<script>
+	function e(i) {return document.getElementById(i);}
+	e('questtext').innerHTML = quest;
+	function check() {
+		e('spacer').innerHTML = '';
+		if (e('enter').value == answer) {
+			e('success').innerHTML = 'Правильно!';
+			e('error').innerHTML = '';
+		} else {
+			e('error').innerHTML = 'Ошибка!';
+			e('success').innerHTML = '';
+		}
+		e('enter').value = '';
+	}
+	e('btn').onclick = check;
+	e('enter').onkeydown = function(evt) {
+		if (evt.keyCode == 13) {
+			check();
+		}
+	};
+</script>
+</html>
